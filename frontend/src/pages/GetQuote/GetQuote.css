@@ -1,0 +1,115 @@
+/* ══════════════════════════════════════════
+   GET QUOTE PAGE — Multi-step form
+══════════════════════════════════════════ */
+.quote-page {
+  background: #141210;
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: #e8e0d0;
+}
+
+.quote-nav {
+  background: #0e0c0a;
+  border-bottom: 1px solid rgba(197,160,89,0.18);
+  padding: 0 4%; display: flex; align-items: center; justify-content: space-between; height: 66px;
+}
+.quote-nav .nav-logo { font-family: var(--serif); font-size: 1.45rem; color: #C5A059; font-weight: 600; cursor: pointer; }
+.quote-nav-back { background: none; border: none; color: rgba(255,255,255,0.4); font-family: var(--sans); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: color 0.2s; letter-spacing: 0.06em; }
+.quote-nav-back:hover { color: #C5A059; }
+
+/* ── LAYOUT ── */
+.quote-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  min-height: calc(100vh - 66px);
+}
+
+/* ── LEFT PANEL ── */
+.quote-left {
+  background: #0e0c0a;
+  border-right: 1px solid rgba(197,160,89,0.1);
+  padding: 4rem 3.5rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.quote-overline { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #C5A059; display: block; margin-bottom: 1.2rem; }
+.quote-left-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: #fff; line-height: 1.18; margin-bottom: 0.5rem; }
+.quote-left-title em { color: #C5A059; font-style: italic; }
+.quote-left-rule { width: 52px; height: 2px; background: linear-gradient(to right, #C5A059, #e8c97a); margin: 1.5rem 0; }
+.quote-left-desc { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.85; font-weight: 300; margin-bottom: 2rem; }
+
+.quote-promises { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 2.5rem; }
+.quote-promise-item { display: flex; align-items: center; gap: 0.8rem; font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+.quote-promise-item span:first-child { font-size: 1.1rem; }
+
+.quote-contact-hint p { font-size: 0.7rem; color: rgba(255,255,255,0.3); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.quote-phone { font-family: var(--serif); font-size: 1.2rem; color: #C5A059; text-decoration: none; font-weight: 600; transition: opacity 0.2s; }
+.quote-phone:hover { opacity: 0.8; }
+
+/* ── RIGHT PANEL ── */
+.quote-right { padding: 3rem 3.5rem; display: flex; flex-direction: column; }
+
+/* Step indicators */
+.quote-steps {
+  display: flex; gap: 0; margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(197,160,89,0.1); padding-bottom: 1.5rem;
+}
+.q-step { display: flex; align-items: center; gap: 0.6rem; flex: 1; opacity: 0.4; transition: opacity 0.3s; }
+.q-step.active, .q-step.done { opacity: 1; }
+.q-step-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1.5px solid rgba(197,160,89,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.4);
+  flex-shrink: 0; transition: all 0.3s;
+}
+.q-step.active .q-step-num { background: #C5A059; border-color: #C5A059; color: #141210; }
+.q-step.done  .q-step-num  { background: rgba(197,160,89,0.2); border-color: #C5A059; color: #C5A059; }
+.q-step span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.5); }
+.q-step.active span { color: #C5A059; }
+
+/* Step content */
+.q-step-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 1.5rem; }
+.q-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+
+.q-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.q-field label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+.q-field input, .q-field select, .q-field textarea {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(197,160,89,0.2);
+  color: #fff; padding: 0.8rem 1rem; font-family: var(--sans); font-size: 0.88rem;
+  border-radius: 2px; outline: none; transition: border-color 0.2s; width: 100%;
+}
+.q-field input:focus, .q-field select:focus, .q-field textarea:focus { border-color: #C5A059; background: rgba(197,160,89,0.04); }
+.q-field input::placeholder, .q-field textarea::placeholder { color: rgba(255,255,255,0.2); }
+.q-field select { cursor: pointer; }
+.q-field select option { background: #1a1714; color: #e8e0d0; }
+.q-field textarea { resize: vertical; min-height: 110px; }
+
+/* Nav buttons */
+.q-nav-btns { display: flex; gap: 1rem; align-items: center; margin-top: 2rem; }
+.q-btn-prev { background: none; border: 1px solid rgba(197,160,89,0.25); color: rgba(255,255,255,0.5); padding: 0.85rem 1.6rem; font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+.q-btn-prev:hover { border-color: #C5A059; color: #C5A059; }
+
+.btn-gold-quote {
+  background: linear-gradient(135deg, #C5A059, #a0813d); color: #fff; border: none;
+  padding: 0.95rem 2.2rem; font-family: var(--sans); font-size: 0.78rem;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; border-radius: 2px; transition: opacity 0.2s, transform 0.15s;
+}
+.btn-gold-quote:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
+.btn-gold-quote:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Success */
+.quote-success { text-align: center; padding: 4rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
+.qs-icon { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #C5A059, #a0813d); color: #fff; font-size: 2rem; display: flex; align-items: center; justify-content: center; }
+.quote-success h2 { font-family: var(--serif); font-size: 1.8rem; color: #fff; }
+.quote-success p { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.8; max-width: 400px; }
+.qs-check { font-size: 0.82rem !important; color: rgba(197,160,89,0.8) !important; }
+.qs-check strong { color: #C5A059; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .quote-layout { grid-template-columns: 1fr; }
+  .quote-left { padding: 3rem 5%; border-right: none; border-bottom: 1px solid rgba(197,160,89,0.1); }
+  .quote-right { padding: 2.5rem 5%; }
+  .q-grid-2 { grid-template-columns: 1fr; }
+}

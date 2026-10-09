@@ -1,0 +1,217 @@
+/* ══════════════════════════════════════════════════
+   SHARED NAV + FOOTER — AM Interior's
+   Import this in Blog.css and Contact.css
+   Teal #1CB4A6 | White #ffffff | Charcoal #333333
+══════════════════════════════════════════════════ */
+
+/* ── SHARED NAVBAR ── */
+.am-shared-nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(28, 180, 166, 0.15);
+  padding: 0 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  box-shadow: 0 2px 12px rgba(28, 180, 166, 0.06);
+}
+
+/* Logo group */
+.am-shared-nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.am-shared-nav-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.am-snl-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1CB4A6;
+}
+
+.am-snl-sub {
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.am-snl-tag {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.5rem;
+  font-style: italic;
+  color: #999;
+}
+
+/* Nav links */
+.am-shared-nav-links {
+  display: flex;
+  gap: 1.8rem;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+.am-shared-nav-links li {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 3px;
+  transition: color 0.2s;
+}
+
+.am-shared-nav-links li::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #1CB4A6;
+  transition: width 0.25s ease;
+}
+
+.am-shared-nav-links li:hover { color: #1CB4A6; }
+.am-shared-nav-links li:hover::after { width: 100%; }
+
+/* CTA button */
+.am-shared-cta {
+  background: #1CB4A6;
+  color: #fff;
+  border: none;
+  padding: 0.55rem 1.3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s;
+  flex-shrink: 0;
+}
+.am-shared-cta:hover {
+  background: #159e91;
+  transform: translateY(-1px);
+}
+
+/* ── SHARED FOOTER ── */
+.am-shared-footer {
+  background: #1a3a38;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.am-sf-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 3rem;
+  padding: 3rem 4%;
+  border-bottom: 1px solid rgba(28, 180, 166, 0.15);
+}
+
+.am-sf-brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.am-sf-logo {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1CB4A6;
+  margin-bottom: 2px;
+}
+
+.am-sf-sub {
+  display: block;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.am-sf-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding-top: 0.3rem;
+}
+
+.am-sf-links span {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.am-sf-links span:hover { color: #1CB4A6; }
+
+.am-sf-contact p {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Bottom bar */
+.am-sf-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4%;
+  background: #122928;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.am-sf-bottom span {
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Secret door — teal dot */
+.am-sf-secret {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-style: italic;
+  transition: color 0.2s;
+}
+.am-sf-secret:hover { color: #1CB4A6 !important; }
+
+.am-sf-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #1CB4A6;
+  opacity: 0.5;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+.am-sf-secret:hover .am-sf-dot { opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .am-shared-nav-links { display: none; }
+  .am-sf-top { grid-template-columns: 1fr; gap: 1.5rem; }
+}

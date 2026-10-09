@@ -1,0 +1,439 @@
+/* ══════════════════════════════════════════
+   UNIVERSAL NAVBAR — AM Interior's
+   Matches screenshot: dark translucent bg,
+   teal logo, white links, teal CTA button
+══════════════════════════════════════════ */
+
+.unav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  padding: 0 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Dark translucent — sits over the hero image */
+.unav--transparent {
+  background: rgba(30, 26, 20, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(28, 180, 166, 0.12);
+}
+
+/* Same dark look when scrolled — slightly more opaque */
+.unav--solid {
+  background: rgba(20, 18, 14, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(28, 180, 166, 0.15);
+}
+
+/* ══════════════════════════════════════════
+   LOGO
+══════════════════════════════════════════ */
+.unav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.unav-logo-svg {
+  width: 52px;
+  height: 48px;
+  flex-shrink: 0;
+  /* slight drop shadow so logo reads on any background */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
+.unav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.unav-logo-brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1CB4A6;
+  letter-spacing: 0.01em;
+}
+
+.unav-logo-names {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.unav-logo-tag {
+  font-family: var(--serif);
+  font-size: 0.56rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════
+   NAV LINKS
+══════════════════════════════════════════ */
+.unav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+.unav-links a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+/* Teal underline animation on hover / active */
+.unav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #1CB4A6;
+  transition: width 0.25s ease;
+}
+
+.unav-links a:hover { color: #fff; }
+.unav-links a:hover::after { width: 100%; }
+
+.unav-links a.active {
+  color: #fff;
+}
+.unav-links a.active::after { width: 100%; }
+
+/* ══════════════════════════════════════════
+   BOOK CONSULTATION BUTTON
+   — solid teal, rectangular, white text
+══════════════════════════════════════════ */
+.unav-cta {
+  background: #1CB4A6;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.unav-cta:hover {
+  background: #159e91;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(28, 180, 166, 0.4);
+}
+
+/* ══════════════════════════════════════════
+   HAMBURGER — mobile
+══════════════════════════════════════════ */
+.unav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.unav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s;
+}
+
+.unav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.unav-burger.open span:nth-child(2) { opacity: 0; }
+.unav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ══════════════════════════════════════════
+   MOBILE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .unav-burger { display: flex; }
+  .unav-cta    { display: none; }
+
+  .unav-links {
+    display: none;
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    background: rgba(18, 15, 10, 0.97);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 2px solid #1CB4A6;
+    z-index: 998;
+  }
+  .unav-links.open { display: flex; }
+
+  .unav-links a {
+    display: block;
+    padding: 0.9rem 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+  }
+  .unav-links a:hover {
+    background: rgba(28,180,166,0.08);
+    color: #1CB4A6;
+  }
+/* ══════════════════════════════════════════
+   UNIVERSAL NAVBAR — AM Interior's
+   Matches screenshot: dark translucent bg,
+   teal logo, white links, teal CTA button
+══════════════════════════════════════════ */
+
+.unav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  padding: 0 3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  transition: background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Dark translucent — sits over the hero image */
+.unav--transparent {
+  background: rgba(30, 26, 20, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(28, 180, 166, 0.12);
+}
+
+/* Same dark look when scrolled — slightly more opaque */
+.unav--solid {
+  background: rgba(20, 18, 14, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(28, 180, 166, 0.15);
+}
+
+/* ══════════════════════════════════════════
+   LOGO
+══════════════════════════════════════════ */
+.unav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.unav-logo-svg {
+  width: 52px;
+  height: 48px;
+  flex-shrink: 0;
+  /* slight drop shadow so logo reads on any background */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.3));
+}
+
+.unav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.unav-logo-brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1CB4A6;
+  letter-spacing: 0.01em;
+}
+
+.unav-logo-names {
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+  margin-top: 1px;
+}
+
+.unav-logo-tag {
+  font-family: var(--serif);
+  font-size: 0.56rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════
+   NAV LINKS
+══════════════════════════════════════════ */
+.unav-links {
+  display: flex;
+  gap: 1.6rem;
+  list-style: none;
+  margin: 0; padding: 0;
+}
+
+.unav-links a {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+/* Teal underline animation on hover / active */
+.unav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #1CB4A6;
+  transition: width 0.25s ease;
+}
+
+.unav-links a:hover { color: #fff; }
+.unav-links a:hover::after { width: 100%; }
+
+.unav-links a.active {
+  color: #fff;
+}
+.unav-links a.active::after { width: 100%; }
+
+/* ══════════════════════════════════════════
+   BOOK CONSULTATION BUTTON
+   — solid teal, rectangular, white text
+══════════════════════════════════════════ */
+.unav-cta {
+  background: #1CB4A6;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.unav-cta:hover {
+  background: #159e91;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(28, 180, 166, 0.4);
+}
+
+/* ══════════════════════════════════════════
+   HAMBURGER — mobile
+══════════════════════════════════════════ */
+.unav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.unav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.85);
+  transition: all 0.3s;
+}
+
+.unav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.unav-burger.open span:nth-child(2) { opacity: 0; }
+.unav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* ══════════════════════════════════════════
+   MOBILE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .unav-burger { display: flex; }
+  .unav-cta    { display: none; }
+
+  .unav-links {
+    display: none;
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    background: rgba(18, 15, 10, 0.97);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 2px solid #1CB4A6;
+    z-index: 998;
+  }
+  .unav-links.open { display: flex; }
+
+  .unav-links a {
+    display: block;
+    padding: 0.9rem 5%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.8rem;
+  }
+  .unav-links a:hover {
+    background: rgba(28,180,166,0.08);
+    color: #1CB4A6;
+  }
+
+  /* Hide sub-text on mobile to save space */
+  .unav-logo-names,
+  .unav-logo-tag { display: none; }
+}
+
+@media (max-width: 560px) {
+  .unav { padding: 0 4%; }
+  .unav-logo-svg { width: 40px; height: 36px; }
+  .unav-logo-brand { font-size: 1rem; }
+}
+  /* Hide sub-text on mobile to save space */
+  .unav-logo-names,
+  .unav-logo-tag { display: none; }
+}
+
+@media (max-width: 560px) {
+  .unav { padding: 0 4%; }
+  .unav-logo-svg { width: 40px; height: 36px; }
+  .unav-logo-brand { font-size: 1rem; }
+}

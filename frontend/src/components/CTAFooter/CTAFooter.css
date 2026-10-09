@@ -1,0 +1,69 @@
+.am-footer { font-family: var(--sans); }
+
+/* CTA band */
+.am-footer-cta {
+  background: linear-gradient(135deg, #1CB4A6 0%, #159e91 100%);
+  padding: 4rem 5%;
+}
+.am-footer-cta-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2rem; flex-wrap: wrap;
+}
+.am-footer-overline { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: block; margin-bottom: 0.7rem; }
+.am-footer-title { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: #fff; font-weight: 700; line-height: 1.2; margin-bottom: 0.5rem; }
+.am-footer-title em { font-style: italic; opacity: 0.9; }
+.am-footer-sub { font-size: 0.85rem; color: rgba(255,255,255,0.75); font-weight: 300; }
+.am-footer-btn {
+  background: #fff; color: #1CB4A6; border: none;
+  padding: 1rem 2.5rem; font-family: var(--sans); font-size: 0.8rem;
+  font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: 3px; cursor: pointer; white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.am-footer-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+/* Footer info grid */
+.am-footer-info {
+  background: #1a3a38;
+  padding: 4rem 5%;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 3rem;
+  max-width: none;
+}
+
+.am-footer-logo { font-family: var(--serif); font-size: 1.4rem; color: #1CB4A6; font-weight: 600; display: block; margin-bottom: 0.2rem; }
+.am-footer-names { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: rgba(255,255,255,0.6); display: block; margin-bottom: 0.15rem; }
+.am-footer-tagline { font-family: var(--serif); font-size: 0.7rem; font-style: italic; color: rgba(255,255,255,0.4); display: block; margin-bottom: 1rem; }
+.am-footer-address { font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.75; font-weight: 300; }
+
+.am-footer-col-title { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1CB4A6; margin-bottom: 1rem; }
+.am-footer-col ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+.am-footer-col ul li { font-size: 0.8rem; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.am-footer-col ul li:hover { color: #1CB4A6; }
+
+/* Bottom bar */
+.am-footer-bottom {
+  background: #122928;
+  padding: 1.2rem 5%;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;
+}
+.am-footer-bottom span { font-size: 0.72rem; color: rgba(255,255,255,0.3); }
+
+/* Secret admin door — tiny teal dot */
+.am-secret-door { cursor: pointer; display: flex; align-items: center; padding: 4px; }
+.am-secret-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #1CB4A6; opacity: 0.35;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.am-secret-door:hover .am-secret-dot { opacity: 1; transform: scale(1.4); }
+
+@media (max-width: 900px) {
+  .am-footer-info { grid-template-columns: 1fr 1fr; }
+  .am-footer-cta-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 560px) {
+  .am-footer-info { grid-template-columns: 1fr; }
+}

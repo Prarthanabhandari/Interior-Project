@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #C5A059;
+  --gold-dark: #a0813d;
+  --cream: #F5F5F5;
+  --charcoal: #2D2D2D;
+  --white: #ffffff;
+  --gray-light: #f0ece4;
+  --text-muted: #666666;
+  --serif: 'Playfair Display', serif;
+  --sans: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.6;
+}
+
+/* ── SHARED BUTTON STYLES ── */
+.btn-gold {
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 0.85rem 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  display: inline-block;
+}
+
+.btn-gold:hover {
+  background: var(--gold-dark);
+  transform: scale(1.04);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  padding: 0.85rem 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--white);
+  transform: scale(1.04);
+}
+
+/* ── SHARED SECTION HEADER ── */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-header .overline {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.section-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: var(--charcoal);
+  position: relative;
+  display: inline-block;
+}
+
+.section-header h2::before,
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.section-header h2::before {
+  right: calc(100% + 18px);
+}
+
+.section-header h2::after {
+  left: calc(100% + 18px);
+}
+
+.gold-divider {
+  width: 52px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.2rem 0;
+}
+
+.gold-divider.center {
+  margin: 1rem auto 0;
+}

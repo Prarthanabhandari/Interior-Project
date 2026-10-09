@@ -1,0 +1,228 @@
+/* ══════════════════════════════════════════
+   AM INTERIOR'S — HERO SECTION
+   Emerald sofa BG · Centered content · No glass card
+   Matches screenshot exactly
+══════════════════════════════════════════ */
+
+.am-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── EMERALD SOFA BACKGROUND ── */
+.am-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1800&q=90')
+    center center / cover no-repeat;
+  /* Bright enough to see sofa clearly — just slight dim for text readability */
+  filter: brightness(0.72);
+  animation: amHeroZoom 14s ease-out forwards;
+  z-index: 0;
+}
+
+@keyframes amHeroZoom {
+  from { transform: scale(1.04); }
+  to   { transform: scale(1.0); }
+}
+
+/* ── CENTERED CONTENT WRAPPER ── */
+.am-hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 5%;
+  max-width: 900px;
+  width: 100%;
+  animation: amFadeUp 0.9s ease 0.2s both;
+}
+
+@keyframes amFadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── OVERLINE ── */
+.am-hero-overline {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #333;
+  background: rgba(255,255,255,0.82);
+  padding: 6px 20px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 1.4rem;
+  backdrop-filter: blur(8px);
+}
+
+/* ── MAIN HEADING 1 ── */
+.am-hero-h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.05;
+  margin-bottom: 0.1rem;
+  letter-spacing: -0.01em;
+  /* Gold/dark text on white-ish bg like screenshot */
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.6),
+    0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* ── HEADING 2 — teal italic ── */
+.am-hero-h2 {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  font-weight: 700;
+  font-style: italic;
+  color: #1CB4A6;
+  line-height: 1.05;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(28,180,166,0.25);
+}
+
+/* ── SUB PARAGRAPH ── */
+.am-hero-sub {
+  font-size: clamp(0.88rem, 1.6vw, 1rem);
+  color: #222;
+  font-weight: 400;
+  line-height: 1.8;
+  margin-bottom: 2.2rem;
+  max-width: 560px;
+  background: rgba(255,255,255,0.7);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  backdrop-filter: blur(6px);
+}
+.am-hero-sub em {
+  font-style: italic;
+  font-weight: 600;
+  color: #1CB4A6;
+}
+
+/* ── BUTTONS ── */
+.am-hero-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Solid teal button */
+.am-btn-solid {
+  background: #1CB4A6;
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.am-btn-solid:hover {
+  background: #159e91;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(28,180,166,0.5);
+}
+
+/* Glassmorphism button */
+.am-btn-glass {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.8);
+  padding: 0.9rem 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s;
+}
+.am-btn-glass:hover {
+  background: rgba(255,255,255,0.35);
+  border-color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255,255,255,0.2);
+}
+
+/* ── SERVICE CHIPS ── */
+.am-hero-chips {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.am-hero-chip {
+  background: rgba(255,255,255,0.88);
+  border: 1.5px solid rgba(28,180,166,0.35);
+  color: #1CB4A6;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 8px 16px;
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s;
+  cursor: default;
+}
+.am-hero-chip:hover {
+  background: #1CB4A6;
+  color: #fff;
+  border-color: #1CB4A6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(28,180,166,0.3);
+}
+
+/* ── SCROLL INDICATOR ── */
+.am-hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.am-hero-scroll span {
+  display: block;
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, rgba(28,180,166,0.8));
+  animation: amScrollPulse 2.2s ease-in-out infinite;
+}
+@keyframes amScrollPulse {
+  0%,100% { opacity: 0; transform: scaleY(0.4); }
+  60%     { opacity: 1; transform: scaleY(1); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .am-hero-h1 { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .am-hero-h2 { font-size: clamp(1.8rem, 7vw, 3rem); }
+  .am-hero-btns { flex-direction: column; align-items: center; }
+  .am-hero-chips { gap: 0.4rem; }
+  .am-hero-chip  { font-size: 0.65rem; padding: 6px 12px; }
+}

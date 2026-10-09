@@ -1,0 +1,79 @@
+.journey-section {
+  background: linear-gradient(to bottom, #F8F9F9, #ffffff);
+  padding: 7rem 4%;
+  position: relative;
+  overflow: hidden;
+}
+
+.journey-wrap { max-width: 1280px; margin: 0 auto; }
+
+.journey-title {
+  text-align: center;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 4.5rem;
+  line-height: 1.3;
+}
+.jt-gold { font-family: var(--serif); font-weight: 700; color: #1CB4A6; }
+.jt-dark { font-family: 'Montserrat', sans-serif; font-weight: 800; color: var(--charcoal); }
+
+.journey-body { position: relative; }
+
+.line-track {
+  position: absolute; top: 108px; left: 12%; right: 12%;
+  height: 2px; background: rgba(28,180,166,0.15); z-index: 0; border-radius: 2px;
+}
+.line-fill {
+  height: 100%;
+  background: linear-gradient(to right, #1CB4A6, #47d4c8);
+  border-radius: 2px;
+  transition: width 0.05s linear;
+  box-shadow: 0 0 10px rgba(28,180,166,0.4);
+}
+
+.phases-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1.5rem; position: relative; z-index: 1;
+}
+
+.phase {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.phase--in { opacity: 1; transform: translateY(0); }
+
+.phase-circle {
+  width: 220px; height: 220px;
+  border-radius: 50%; overflow: hidden;
+  border: 3px solid #1CB4A6;
+  cursor: pointer;
+  transition: transform 0.35s, box-shadow 0.35s;
+  background: #f0f9f9;
+  flex-shrink: 0;
+}
+.phase-circle img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(15%); transition: transform 0.4s, filter 0.35s;
+}
+.phase:hover .phase-circle {
+  transform: scale(1.06);
+  box-shadow: 0 0 28px rgba(28,180,166,0.45);
+}
+.phase:hover .phase-circle img { transform: scale(1.08); filter: grayscale(0%); }
+
+.phase-num { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #1CB4A6; margin-top: 1.4rem; margin-bottom: 0.3rem; }
+.phase-title { font-family: var(--sans); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal); margin-bottom: 0.6rem; transition: color 0.2s; }
+.phase:hover .phase-title { color: #1CB4A6; }
+.phase-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.75; font-weight: 300; max-width: 220px; transition: color 0.2s; }
+.phase:hover .phase-desc { color: var(--charcoal); }
+
+@media (max-width: 900px) {
+  .phases-grid { grid-template-columns: repeat(2,1fr); gap: 3rem 1.5rem; }
+  .line-track  { display: none; }
+}
+@media (max-width: 500px) {
+  .phases-grid { grid-template-columns: 1fr; }
+  .phase-circle { width: 180px; height: 180px; }
+}

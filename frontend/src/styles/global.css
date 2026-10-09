@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ══════════════════════════════════════════
+   AM INTERIOR'S — Master Brand Variables
+══════════════════════════════════════════ */
+:root {
+  --teal:        #1CB4A6;
+  --teal-dark:   #159e91;
+  --teal-light:  #e8f8f7;
+  --teal-soft:   rgba(28,180,166,0.1);
+  --teal-glow:   rgba(28,180,166,0.25);
+
+  --charcoal:    #333333;
+  --text-body:   #555555;
+  --text-muted:  #888888;
+  --text-light:  #bbbbbb;
+
+  --white:       #ffffff;
+  --off-white:   #F8F9F9;
+  --mist:        #f0f4f4;
+  --border:      #e4e8e8;
+  --border-soft: #eeeeee;
+
+  --brass:       #D9B99B;
+
+  /* Legacy aliases — keeps old components working */
+  --gold:        #1CB4A6;
+  --gold-dark:   #159e91;
+  --cream:       #F8F9F9;
+
+  --serif:  'Playfair Display', serif;
+  --sans:   'Montserrat', sans-serif;
+
+  --shadow-sm: 0 2px 8px rgba(28,180,166,0.06);
+  --shadow-md: 0 8px 24px rgba(28,180,166,0.1);
+  --shadow-lg: 0 16px 40px rgba(28,180,166,0.14);
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--sans);
+  color: var(--charcoal);
+  background: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; }
+button { font-family: var(--sans); }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--off-white); }
+::-webkit-scrollbar-thumb { background: var(--teal); border-radius: 4px; }
+
+/* ══════════════════════════════════════════
+   GLOBAL BUTTONS
+══════════════════════════════════════════ */
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 0.8rem 1.8rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-primary:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--teal-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--teal);
+  border: 1.5px solid var(--teal);
+  padding: 0.8rem 1.8rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-outline:hover {
+  background: var(--teal);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Legacy btn-gold alias */
+.btn-gold { background: var(--teal); color: #fff; border: none; padding: 0.8rem 1.8rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; border-radius: var(--radius-sm); cursor: pointer; transition: background 0.2s, transform 0.15s; }
+.btn-gold:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+/* ══════════════════════════════════════════
+   SHARED SECTION HEADER
+══════════════════════════════════════════ */
+.section-header { text-align: center; margin-bottom: 3rem; }
+.section-header .overline {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--teal); display: block; margin-bottom: 0.6rem;
+}
+.section-header h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  color: var(--charcoal); font-weight: 700;
+  position: relative; display: inline-block;
+}
+.section-header h2::before,
+.section-header h2::after {
+  content: ''; position: absolute; top: 50%;
+  width: 50px; height: 1.5px; background: var(--teal);
+}
+.section-header h2::before { right: calc(100% + 16px); }
+.section-header h2::after  { left:  calc(100% + 16px); }
+
+.teal-divider { width: 48px; height: 2.5px; background: var(--teal); margin: 1rem 0; }
+.teal-divider.center { margin: 1rem auto; }
+
+/* ══════════════════════════════════════════
+   UTILITY
+══════════════════════════════════════════ */
+.text-teal   { color: var(--teal); }
+.text-muted  { color: var(--text-muted); }
+.bg-off      { background: var(--off-white); }
+.bg-white    { background: var(--white); }
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════ */
+@keyframes fadeUp   { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+@keyframes slideUp  { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+@keyframes zoomIn   { from{transform:scale(1.06)} to{transform:scale(1)} }
+@keyframes drawLine { from{width:0} to{width:100%} }
+
+.animate-fadeUp { animation: fadeUp 0.7s ease both; }

@@ -1,0 +1,113 @@
+# 1. Create root folder and navigate into it
+mkdir anita-interior-site && cd anita-interior-site
+
+# 2. Create Frontend (Vite + React)
+npm create vite@latest frontend -- --template react
+cd frontend && npm install axios && cd ..
+
+# 3. Create Backend folder and initialize
+mkdir backend && cd backend && npm init -y
+
+# 4. Install backend dependencies
+npm install express pg multer cors dotenv
+npm install --save-dev nodemon
+
+# 5. Create backend folder structure
+mkdir uploads db routes controllers middleware config
+
+# 6. Create backend files
+touch server.js .env .gitignore
+touch db/index.js
+touch routes/projectRoutes.js routes/inquiryRoutes.js routes/authRoutes.js
+touch controllers/projectController.js controllers/inquiryController.js controllers/authController.js
+touch middleware/authMiddleware.js middleware/uploadMiddleware.js
+touch config/cloudinary.js
+
+cd ..
+
+# 7. Create frontend folder structure
+cd frontend/src
+mkdir components pages styles hooks context services admin
+mkdir components/Navbar components/Hero components/Portfolio components/Services
+mkdir components/Testimonials components/Footer components/Common
+mkdir pages/Home pages/Portfolio pages/About pages/Contact pages/Blog pages/Admin
+mkdir admin/Dashboard admin/ProjectManager admin/InquiryManager admin/Auth
+
+# 8. Create key frontend files
+touch services/api.js
+touch context/AuthContext.js
+touch hooks/useProjects.js hooks/useInquiries.js
+
+# 9. Create style files
+touch styles/global.css styles/variables.css styles/navbar.css
+touch styles/hero.css styles/portfolio.css styles/admin.css
+
+cd ../..
+
+# 10. Create root-level files
+touch .gitignore README.md
+
+
+
+anita-interior-site/
+├── backend/
+│   ├── config/             # Cloudinary configuration
+│   │   └── cloudinary.js
+│   ├── controllers/        # Logic for API endpoints
+│   │   ├── authController.js
+│   │   ├── inquiryController.js
+│   │   └── projectController.js
+│   ├── db/                 # Database connection
+│   │   └── index.js
+│   ├── middleware/         # Auth & Multer (upload) logic
+│   │   ├── authMiddleware.js
+│   │   └── uploadMiddleware.js
+│   ├── routes/             # API Route definitions
+│   │   ├── authRoutes.js
+│   │   ├── inquiryRoutes.js
+│   │   └── projectRoutes.js
+│   ├── uploads/            # Local folder for image storage
+│   ├── server.js           # Entry point for Backend
+│   └── package.json
+│
+└── frontend/
+    ├── public/             # Static assets (favicon, etc.)
+    ├── src/
+    │   ├── admin/          # Admin Dashboard sub-components
+    │   │   ├── Auth/
+    │   │   ├── Dashboard/
+    │   │   ├── InquiryManager/
+    │   │   └── ProjectManager/
+    │   ├── components/     # Reusable UI sections
+    │   │   ├── Common/
+    │   │   ├── CTAFooter/      -> CTAFooter.jsx, .css
+    │   │   ├── FeaturedProjects/ -> FeaturedProjects.jsx, .css
+    │   │   ├── Footer/
+    │   │   ├── Hero/           -> Hero.jsx, .css
+    │   │   ├── Navbar/         -> Navbar.jsx, .css
+    │   │   ├── Portfolio/      # (Empty - see Pages/Portfolio instead)
+    │   │   ├── Services/       -> Services.jsx, .css
+    │   │   └── Testimonials/   -> Testimonial.jsx, .css (Plural folder!)
+    │   ├── context/        # Global state (Auth)
+    │   │   └── AuthContext.js
+    │   ├── hooks/          # Custom React hooks (Data fetching)
+    │   │   ├── useInquiries.js
+    │   │   └── useProjects.js
+    │   ├── pages/          # Main Page views
+    │   │   ├── About/          -> About.jsx, .css
+    │   │   ├── Admin/
+    │   │   ├── Blog/
+    │   │   ├── Contact/
+    │   │   ├── Home/           -> HomePage.jsx
+    │   │   └── Portfolio/      -> Portfolio.jsx, .css (The full gallery)
+    │   ├── services/       # Axios/API configurations
+    │   │   └── api.js
+    │   ├── styles/         # Global CSS files
+    │   │   ├── global.css
+    │   │   ├── variables.css
+    │   │   └── ... (component-specific styles)
+    │   ├── App.jsx         # Main router and app logic
+    │   ├── main.jsx        # React entry point
+    │   └── index.css
+    ├── vite.config.js
+    └── package.json

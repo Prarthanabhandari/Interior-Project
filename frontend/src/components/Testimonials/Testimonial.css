@@ -1,0 +1,15 @@
+.testimonial { padding: 7rem 5%; background: var(--off-white); text-align: center; }
+.testimonial-body { max-width: 680px; margin: 0 auto 2.5rem; }
+.stars { color: #1CB4A6; font-size: 1.4rem; letter-spacing: 0.18em; margin-bottom: 1.8rem; }
+.testimonial-quote {
+  font-family: var(--serif); font-size: clamp(1rem, 2.5vw, 1.35rem); font-style: italic;
+  line-height: 1.75; color: var(--charcoal); position: relative; padding: 0 2rem; margin-bottom: 2rem;
+}
+.testimonial-quote::before { content:'\201C'; font-size: 5rem; color: #1CB4A6; position: absolute; top: -1.5rem; left: -0.5rem; line-height: 1; font-style: normal; opacity: 0.5; }
+.testimonial-quote::after  { content:'\201D'; font-size: 5rem; color: #1CB4A6; position: absolute; bottom: -3rem; right: -0.5rem; line-height: 1; font-style: normal; opacity: 0.5; }
+.testimonial-author { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+.author-name { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #1CB4A6; }
+.author-location { font-size: 0.75rem; color: var(--text-muted); font-weight: 300; }
+.testimonial-dots { display: flex; justify-content: center; gap: 0.6rem; margin-top: 1rem; }
+.dot { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid #1CB4A6; background: transparent; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+.dot.active { background: #1CB4A6; transform: scale(1.3); }

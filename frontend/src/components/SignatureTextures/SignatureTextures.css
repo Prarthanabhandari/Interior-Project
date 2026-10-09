@@ -1,0 +1,113 @@
+.textures-section {
+  background: linear-gradient(to bottom, #ffffff 0%, #F8F9F9 55%, #1a3a38 100%);
+  padding: 7rem 4% 2rem;
+  position: relative;
+  overflow: visible;
+}
+.textures-wrap { max-width: 1280px; margin: 0 auto; text-align: center; overflow: visible; }
+
+.textures-heading {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: #1CB4A6; margin-bottom: 0.8rem;
+}
+.textures-sub { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #888; margin-bottom: 4rem; }
+
+.textures-row {
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: 3rem; flex-wrap: wrap; margin-bottom: 3.5rem; overflow: visible;
+}
+
+.texture-item {
+  display: flex; flex-direction: column; align-items: center;
+  width: 240px; overflow: visible;
+  opacity: 0; transform: translateY(36px) scale(0.93);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.texture-item--in { opacity: 1; transform: translateY(0) scale(1); }
+
+.t-halo {
+  width: 240px; height: 240px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 0 0 3px #1CB4A6, 0 0 22px rgba(28,180,166,0.2), 0 0 0 10px rgba(28,180,166,0.04);
+  cursor: pointer;
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.texture-item:hover .t-halo {
+  box-shadow: 0 0 0 3px #1CB4A6, 0 0 35px rgba(28,180,166,0.6), 0 0 0 10px rgba(28,180,166,0.1);
+  transform: scale(1.05);
+}
+
+.t-circle {
+  width: 212px; height: 212px; border-radius: 50%; overflow: hidden;
+  border: 2px solid rgba(0,0,0,0.08); background: #e8f8f7; flex-shrink: 0;
+}
+.t-circle img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(15%); transition: transform 0.45s ease, filter 0.35s ease;
+}
+.texture-item:hover .t-circle img { transform: scale(1.1); filter: grayscale(0%); }
+
+.t-name {
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--charcoal);
+  margin-top: 1.2rem; margin-bottom: 0.25rem; text-align: center; width: 100%; line-height: 1.35;
+}
+.t-desc { font-size: 0.72rem; color: #1CB4A6; font-weight: 600; letter-spacing: 0.08em; text-align: center; width: 100%; }
+
+.textures-cta { text-align: center; padding-bottom: 5rem; }
+.btn-brochure {
+  position: relative; overflow: hidden; background: transparent;
+  color: #1CB4A6; border: 1.5px solid #1CB4A6;
+  padding: 0.95rem 2.8rem; font-family: var(--sans);
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+  cursor: pointer; transition: color 0.28s, transform 0.2s; z-index: 0;
+}
+.btn-brochure::before {
+  content: ''; position: absolute; inset: 0; background: #1CB4A6;
+  transform: scaleX(0); transform-origin: left; transition: transform 0.28s ease; z-index: -1;
+}
+.btn-brochure:hover::before { transform: scaleX(1); }
+.btn-brochure:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(28,180,166,0.3); }
+
+/* Modal */
+.brochure-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(6px);
+  z-index: 1000; display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem; animation: bfadeIn 0.25s ease;
+}
+@keyframes bfadeIn { from{opacity:0} to{opacity:1} }
+.brochure-modal {
+  background: #fff; border: 1px solid rgba(28,180,166,0.2); border-radius: 4px;
+  padding: 2.5rem; width: 100%; max-width: 460px; position: relative;
+  animation: bslideUp 0.3s ease;
+}
+@keyframes bslideUp { from{transform:translateY(24px);opacity:0} to{transform:translateY(0);opacity:1} }
+.brochure-close { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: #aaa; font-size: 1.1rem; cursor: pointer; transition: color 0.2s; }
+.brochure-close:hover { color: #1CB4A6; }
+.brochure-overline { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: #1CB4A6; display: block; margin-bottom: 0.6rem; }
+.brochure-modal-top h2 { font-family: var(--serif); font-size: 1.6rem; color: var(--charcoal); font-weight: 600; margin-bottom: 0.5rem; }
+.brochure-modal-top p { font-size: 0.82rem; color: var(--text-muted); font-weight: 300; line-height: 1.7; margin-bottom: 1.8rem; }
+.brochure-form { display: flex; flex-direction: column; gap: 1rem; }
+.b-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.b-field label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #888; }
+.b-field input { background: #f8f9f9; border: 1px solid #e0e0e0; color: var(--charcoal); padding: 0.75rem 1rem; font-family: var(--sans); font-size: 0.88rem; border-radius: 3px; outline: none; transition: border-color 0.2s; width: 100%; }
+.b-field input:focus { border-color: #1CB4A6; background: rgba(28,180,166,0.03); }
+.brochure-submit { background: linear-gradient(135deg, #1CB4A6, #159e91); color: #fff; border: none; padding: 0.9rem; font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; border-radius: 3px; margin-top: 0.5rem; transition: opacity 0.2s, transform 0.15s; }
+.brochure-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+.brochure-success { text-align: center; padding: 2rem 0; }
+.success-tick { width: 60px; height: 60px; border-radius: 50%; background: linear-gradient(135deg, #1CB4A6, #159e91); color: #fff; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+.brochure-success h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--charcoal); margin-bottom: 0.6rem; }
+.brochure-success p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .textures-row { gap: 2rem; }
+  .texture-item { width: 190px; }
+  .t-halo { width: 190px; height: 190px; }
+  .t-circle { width: 166px; height: 166px; }
+}
+@media (max-width: 600px) {
+  .textures-row { flex-direction: column; align-items: center; }
+  .texture-item { width: 220px; }
+}

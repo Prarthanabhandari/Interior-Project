@@ -1,0 +1,23 @@
+.settings-tabs { display:flex; gap:0.4rem; margin-bottom:1.5rem; flex-wrap:wrap; }
+.settings-tab {
+  background:none; border:1px solid #e0e0e0; color:#888;
+  padding:0.5rem 1.1rem; border-radius:20px;
+  font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:600;
+  cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:0.4rem;
+}
+.settings-tab:hover { border-color:#1CB4A6; color:#1CB4A6; }
+.settings-tab--active { background:#1CB4A6; color:#fff; border-color:#1CB4A6; }
+
+.settings-hero-preview {
+  background:#f8f9f9; border:1px solid #e8eaea;
+  border-radius:6px; padding:1.5rem; margin-top:0.5rem;
+  border-left:3px solid #1CB4A6;
+}
+
+.settings-danger-item {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.2rem 0; border-bottom:1px solid #f0f0f0; gap:1rem; flex-wrap:wrap;
+}
+.settings-danger-item:last-child { border-bottom:none; }
+.settings-danger-title { font-size:0.88rem; font-weight:700; color:#333; margin-bottom:0.2rem; }
+.settings-danger-sub   { font-size:0.75rem; color:#888; }
